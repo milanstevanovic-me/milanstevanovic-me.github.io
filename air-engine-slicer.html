@@ -44,23 +44,26 @@
 						<div class="container">
 							<header class="major">
 								<h2>Air Engine Powered Food Slicer</h2>
-								<p>A compressed-air-powered food slicer designed for safety, manufacturability, and low cost.</p>
+								<p>A compressed-air-powered food slicer designed and manufactured to strict cost, safety, and manufacturability constraints. Final decision matrix score: 8.7/10, the highest of four competing team designs.</p>
 							</header>
 
 							<h3>The Problem</h3>
-							<p>For this project, I needed to design a food slicer powered entirely by a compressed-air engine — no electric motor. The constraints were strict: the design had to be safe around food, manufacturable in small batches, low part count, and built under a $100 cost cap. It also had to integrate with an existing dual-action two-stroke air engine's flywheel/piston interface, rather than being a standalone design.</p>
+							<p>This was a semester-long design and manufacturing project (EML2322L Design and Manufacturing Lab at UF) completed with a team of four. Each member designed a competing food slicer concept powered entirely by a dual-action two-stroke compressed-air piston engine, no electric motor allowed. The constraints were strict: the design had to interface with the air engine's flywheel or piston shaft, use food-safe materials anywhere touching food, have a lockable adjustable slice thickness, consist of 4 to 12 manufactured components, use no more than one 3D-printed part and one CNC/waterjet part, and come in under a $100 total budget. A 10% bonus was available for any design that avoided gears or pulleys entirely. After each team member designed independently, the team scored all four concepts in a weighted decision matrix and selected the best overall design to manufacture.</p>
 
-							<h3>My Process</h3>
-							<p>[Add details here: How did you approach the design? What did you sketch/prototype first? What was the hardest engineering decision — e.g. how to convert the piston's linear motion into a slicing motion? Did you go through multiple design iterations? What calculations did you have to do for force, stroke length, or material selection?]</p>
+							<h3>My Design</h3>
+							<p>My concept used a pulley and flat-belt system to transfer rotation from the air engine's flywheel to a rotating shaft, which drove a two-bladed rotary cutting assembly. A 3D-printed drive wheel (cost: $0.06 in PLA) connects to the shaft and is driven by a rubber belt looped around the flywheel. The shaft passes through a base built from machined aluminum, supported by two L-bracket connecting rod supports, and carries a circular off-the-shelf food-safe stainless steel blade. A separate aluminum thickness adjustment plate with a slotted track lets the user change the cutting height, locked in place with fasteners.</p>
+							<p>I intentionally chose an off-the-shelf circular blade (7.83" diameter, food-safe stainless steel) rather than machining one myself, since outsourcing that single component to a precision manufacturer guaranteed consistent sharpness and food safety without consuming my CNC-part allowance, while keeping cost reasonable at $10.95.</p>
 
-							<h3>What I Built</h3>
-							<p>I engineered a fully constrained mechanical system with an adjustable, lockable slice-thickness mechanism and enough stroke length to cut common foods. I produced complete manufacturing-ready documentation, including detailed part and assembly drawings, tolerances, a bill of materials (BOM), inspection criteria, and engineering change notices (ECNs), applying DFMA (Design for Manufacturing and Assembly) principles throughout to support repeatable small-batch production.</p>
+							<h3>Design Trade-offs</h3>
+							<p>The team scored every concept across five weighted objectives: manufacturing time, cost, ease of assembly, slice thickness range, and safety. My design weighted heaviest on cost (35%) and safety (32.5%), based on a binary trade study the team conducted together. My design scored a 9.7/10 on cost ($92.10, just above the team's lowest at $88.91) and a perfect 10/10 on slice thickness range, since my adjustable plate allowed for the maximum 10+ discrete thickness settings the scoring rubric would count.</p>
+							<p>My biggest trade-off was safety: my design scored a 0/10 on the safety metric because the blade's cutting arc was the most exposed of all four designs (10.27 inches of exposed cutting edge, compared to a teammate's fully enclosed design that scored a 10). This was a direct result of prioritizing simplicity and low part count in the cutting area over full enclosure, and it's the area I'd most want to redesign if I revisited this project. Despite that weakness, the design's strength in cost, thickness range, and manufacturing time was enough for it to score highest overall (8.7 vs. the next-best at 7.2) once all five objectives were weighted together.</p>
 
-							<h3>Results</h3>
-							<p>[Add details here: Did you build a physical prototype? Did it work? Any specific numbers — slice thickness range, cycle time, final part count, final cost?]</p>
+							<h3>From Design to Manufacturing</h3>
+							<p>After the team selected the winning design (a hybrid that pulled the best elements from each concept, including my base/shaft assembly), I helped revise the part drawings for actual manufacturability and machined several of my components myself in the student machine shop, including the base safety cover, base hole cover, and the aluminum plate. Machining the plate required cutting a precise 60° angled opening using a bandsaw guided by hand-marked lines at a 15° offset from center, which demanded careful layout work since there was no CNC programming for that cut.</p>
+							<p>Every part I manufactured was measured against formal tolerance call-outs and logged on Manufacturing Inspection Records, with most linear dimensions held to ±0.005" and hole diameters to ±0.005"-0.010". All of my manufactured components passed inspection on the first attempt. The shaft was one of the more demanding parts to machine: it required precision lathe turning down to a 0.315" diameter with a finishing pass, followed by drilling and hand-tapping 0-80 UNC threaded holes, one of the smallest and most failure-prone thread sizes to tap by hand without stripping.</p>
 
 							<h3>What I Learned</h3>
-							<p>[Add details here: Be specific — e.g. "I learned that food-safe material requirements eliminated several lower-cost options I had initially planned around" or "I learned how much tolerance stack-up matters when integrating with an existing system you didn't design."]</p>
+							<p>This project taught me how much engineering tradeoffs compound. Optimizing for cost and simplicity directly cost my design points on safety, and seeing that quantified in a weighted decision matrix made the tradeoff concrete instead of abstract. It also showed me the gap between a CAD model and a manufacturable part: clarifications I had to make to my own original design, like correcting base mounting hole orientation and reducing side wall heights to prevent interference with larger food items, only became obvious once teammates and TAs reviewed the drawings for buildability. Finally, hand-tapping the 0-80 threaded holes in the shaft taught me to respect how unforgiving small fasteners are in manufacturing: there's very little margin for error before you strip the threads, which is something no CAD simulation fully prepares you for.</p>
 
 							<ul class="actions">
 								<li><a href="index.html" class="button">Back to Projects</a></li>
@@ -80,5 +83,7 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+	</body>
+</html>
 	</body>
 </html>
