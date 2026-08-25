@@ -2402,7 +2402,7 @@ input, select, textarea {
 			}
 
 			ul.feature-icons li:before {
-				background: #4acaa8;
+				background: #0A1A2F;
 				border-radius: 100%;
 				color: #ffffff;
 				display: block;
@@ -2699,8 +2699,8 @@ input, select, textarea {
 		-webkit-justify-content: space-between;
 		-ms-justify-content: space-between;
 		justify-content: space-between;
-		background: #4acaa8;
-		color: #d2f2e9;
+		background: #0A1A2F;
+		color: #a9b8c9;
 		height: 100%;
 		overflow-y: auto;
 		position: fixed;
@@ -2723,7 +2723,7 @@ input, select, textarea {
 		}
 
 		#header a {
-			color: #d2f2e9;
+			color: #a9b8c9;
 		}
 
 			#header a:hover {
