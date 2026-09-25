@@ -54,10 +54,10 @@
 									<p><a href="index.html#three">&larr; Back to Projects</a></p>
 
 									<h3>Overview</h3>
-									<p>This was an independent project built to solve a real problem: automatically dispensing food for a pet on a reliable schedule, without needing to be home. I designed and built the entire system myself — from the mechanical dispensing mechanism to the Arduino code controlling it.</p>
+									<p>This project began as a straightforward triggered circuit — a button press activating a servo, LED, and buzzer — and was later expanded into a functioning feedback control system. The motivation was straightforward: the original circuit could only execute a fixed command when triggered, with no ability to sense or respond to its surroundings. To address this, I redesigned the system around two photoresistors and a proportional control algorithm, allowing the servo to continuously track a light source and adjust its position in response to changes in the environment.</p>
 
 									<h3>How It Works</h3>
-									<p>The feeder uses a servo motor to rotate a dispensing mechanism at programmed intervals, releasing a controlled portion of food each cycle. An Arduino microcontroller handles the timing logic, and the system gives feedback through an LED and buzzer — confirming when a feeding cycle has successfully completed, and flagging if something goes wrong.</p>
+									<p>Two photoresistors are positioned on either side of the servo mount, each wired as a voltage divider feeding an analog input. The Arduino continuously samples both sensors and calculates the difference between their readings, which serves as the system's error signal — zero when the light source is centered, and increasingly large as it shifts to one side. This error is scaled by a proportional gain constant and applied as a correction to the servo's position, producing a system that adjusts its output in proportion to how far it currently is from its target state. Because this measurement and correction cycle runs continuously rather than once, the servo actively follows a moving light source rather than executing a single predetermined motion.</p>
 
 									<h3>Design &amp; Build Process</h3>
 									<ul>
