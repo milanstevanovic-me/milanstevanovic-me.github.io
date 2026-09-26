@@ -60,13 +60,16 @@
 									<p>Two photoresistors are positioned on either side of the servo mount, each wired as a voltage divider feeding an analog input. The Arduino continuously samples both sensors and calculates the difference between their readings, which serves as the system's error signal — zero when the light source is centered, and increasingly large as it shifts to one side. This error is scaled by a proportional gain constant and applied as a correction to the servo's position, producing a system that adjusts its output in proportion to how far it currently is from its target state. Because this measurement and correction cycle runs continuously rather than once, the servo actively follows a moving light source rather than executing a single predetermined motion.</p>
 
 									<h3>Design &amp; Build Process</h3>
-									<ul>
-										<li>Designed the mechanical housing and dispensing mechanism to reliably portion food without jamming</li>
-										<li>Selected and integrated a servo motor for precise, repeatable rotation control</li>
-										<li>Programmed the Arduino to handle scheduled timing and feeding intervals</li>
-										<li>Added LED and buzzer feedback to confirm successful dispensing cycles</li>
-										<li>Tested and iterated on the mechanism to prevent food jams and ensure consistent portion sizes</li>
-									</ul>
+<ol>
+  <li>Designed and wired the original circuit — pushbutton, LED, buzzer, and servo — and produced a complete electrical schematic documenting every connection and component value.</li>
+  <li>Implemented the initial open-loop logic, in which a button press triggered a fixed sequence of outputs with no sensing involved.</li>
+  <li>Recognized the core limitation of this design: without any means of sensing its environment, the system could only repeat a scripted response rather than adapt to changing conditions.</li>
+  <li>Integrated two photoresistors in a voltage-divider configuration to provide the system with real-time environmental input.</li>
+  <li>Developed a proportional control loop that calculates the error between the two sensor readings and adjusts the servo's angle accordingly, replacing the fixed-position logic of the earlier version.</li>
+  <li>Identified and resolved a jitter issue caused by minor sensor noise being interpreted as meaningful error, by introducing a deadband threshold below which no correction is applied.</li>
+  <li>Replaced blocking <code>delay()</code> calls with a <code>millis()</code>-based timing structure, allowing the control loop to run on a consistent interval without interrupting continuous sensor monitoring.</li>
+  <li>Tuned the proportional gain empirically, using live sensor and servo-angle output through the Serial Monitor to balance responsiveness against stability.</li>
+</ol>
 
 									<h3>Key Takeaways</h3>
 									<p>This project gave me hands-on experience combining mechanical design with embedded electronics — an area I'm increasingly interested in (mechatronics). It also taught me a lot about designing for reliability in a system that has to run unattended.</p>
