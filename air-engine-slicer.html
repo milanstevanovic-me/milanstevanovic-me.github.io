@@ -44,50 +44,57 @@
 						<div class="container">
 							<header class="major">
 								<h2>Air Engine Powered Food Slicer</h2>
-								<p>A compressed-air-powered food slicer designed and manufactured to strict cost, safety, and manufacturability constraints. Final decision matrix score: 8.7/10, the highest of four competing team designs.</p>
+								<p>A compressed-air-powered food slicer, designed from scratch for a team design competition and then fully modeled and documented in SolidWorks for manufacturing. My concept came in under budget at $92.10 and offered the widest range of slice-thickness settings of the four team designs.</p>
 							</header>
 
-							<h3>The Problem</h3>
-							<p>This was a semester-long design and manufacturing project (EML2322L Design and Manufacturing Lab at UF) completed with a team of four. Each member designed a competing food slicer concept powered entirely by a dual-action two-stroke compressed-air piston engine, no electric motor allowed. The constraints were strict: the design had to interface with the air engine's flywheel or piston shaft, use food-safe materials anywhere touching food, have a lockable adjustable slice thickness, consist of 4 to 12 manufactured components, use no more than one 3D-printed part and one CNC/waterjet part, and come in under a $100 total budget. A 10% bonus was available for any design that avoided gears or pulleys entirely. After each team member designed independently, the team scored all four concepts in a weighted decision matrix and selected the best overall design to manufacture.</p>
+							<h3>The Challenge</h3>
+							<p>In EML2322L Design and Manufacturing Lab at UF, each of the four members of my team independently designed a food slicer powered entirely by a dual-action two-stroke compressed-air piston engine, with no electric motor. Each design had to use food-safe materials, have a lockable adjustable slice thickness, and stay under a $100 budget. We then scored every concept in a weighted decision matrix across manufacturing time, cost, ease of assembly, thickness range, and safety.</p>
 
 							<h3>My Design</h3>
-							<p>My concept used a pulley and flat-belt system to transfer rotation from the air engine's flywheel to a rotating shaft, which drove a two-bladed rotary cutting assembly. A 3D-printed drive wheel (cost: $0.06 in PLA) connects to the shaft and is driven by a rubber belt looped around the flywheel. The shaft passes through a base built from machined aluminum, supported by two L-bracket connecting rod supports, and carries a circular off-the-shelf food-safe stainless steel blade. A separate aluminum thickness adjustment plate with a slotted track lets the user change the cutting height, locked in place with fasteners.</p>
-							<p>I intentionally chose an off-the-shelf circular blade (7.83" diameter, food-safe stainless steel) rather than machining one myself, since outsourcing that single component to a precision manufacturer guaranteed consistent sharpness and food safety without consuming my CNC-part allowance, while keeping cost reasonable at $10.95.</p>
+							<p>My concept transferred rotation from the engine's flywheel to a shaft through a flat belt and drive wheel, driving a rotating blade. Slice thickness was set with long slotted L-brackets, which gave the largest number of adjustment options of any concept on the team. A cover guard sat over the blade.</p>
+
+							<h3>By the Numbers</h3>
+							<ul>
+								<li><strong>Cost:</strong> $92.10, under the $100 cap</li>
+								<li><strong>Estimated build time:</strong> 196 minutes</li>
+								<li><strong>Slice thickness range:</strong> highest of the four team designs</li>
+								<li><strong>Components:</strong> 54 total, including fasteners and off-the-shelf hardware</li>
+							</ul>
 
 							<h3>Design Trade-offs</h3>
-							<p>The team scored every concept across five weighted objectives: manufacturing time, cost, ease of assembly, slice thickness range, and safety. My design weighted heaviest on cost (35%) and safety (32.5%), based on a binary trade study the team conducted together. My design scored a 9.7/10 on cost ($92.10, just above the team's lowest at $88.91) and a perfect 10/10 on slice thickness range, since my adjustable plate allowed for the maximum 10+ discrete thickness settings the scoring rubric would count.</p>
-							<p>My biggest trade-off was safety: my design scored a 0/10 on the safety metric because the blade's cutting arc was the most exposed of all four designs (10.27 inches of exposed cutting edge, compared to a teammate's fully enclosed design that scored a 10). This was a direct result of prioritizing simplicity and low part count in the cutting area over full enclosure, and it's the area I'd most want to redesign if I revisited this project. Despite that weakness, the design's strength in cost, thickness range, and manufacturing time was enough for it to score highest overall (8.7 vs. the next-best at 7.2) once all five objectives were weighted together.</p>
+							<p>Keeping the cutting area simple helped cost and adjustability, but left 10.27 inches of blade arc exposed. Safety is the first thing I'd improve in a second iteration, with a fully enclosed blade, and I'd cut the fastener count to bring down cost and assembly time.</p>
 
-							<h3>From Design to Manufacturing</h3>
-							<p>After the team selected the winning design (a hybrid that pulled the best elements from each concept, including my base/shaft assembly), I helped revise the part drawings for actual manufacturability and machined several of my components myself in the student machine shop, including the base safety cover, base hole cover, and the aluminum plate. Machining the plate required cutting a precise 60° angled opening using a bandsaw guided by hand-marked lines at a 15° offset from center, which demanded careful layout work since there was no CNC programming for that cut.</p>
-							<p>Every part I manufactured was measured against formal tolerance call-outs and logged on Manufacturing Inspection Records, with most linear dimensions held to ±0.005" and hole diameters to ±0.005"-0.010". All of my manufactured components passed inspection on the first attempt. The shaft was one of the more demanding parts to machine: it required precision lathe turning down to a 0.315" diameter with a finishing pass, followed by drilling and hand-tapping 0-80 UNC threaded holes, one of the smallest and most failure-prone thread sizes to tap by hand without stripping.</p>
+							<h3>Design to Documentation</h3>
+							<p>After the team selected a design, we modeled every part and the full assembly in SolidWorks. I personally modeled the base safety cover and base hole cover. The package included part drawings, exploded views, Manufacturing Inspection Records for every part, and a manufacturing process outline showing how each part would be made.</p>
 
 							<h3>What I Learned</h3>
-							<p>This project taught me how much engineering tradeoffs compound. Optimizing for cost and simplicity directly cost my design points on safety, and seeing that quantified in a weighted decision matrix made the tradeoff concrete instead of abstract. It also showed me the gap between a CAD model and a manufacturable part: clarifications I had to make to my own original design, like correcting base mounting hole orientation and reducing side wall heights to prevent interference with larger food items, only became obvious once teammates and TAs reviewed the drawings for buildability. Finally, hand-tapping the 0-80 threaded holes in the shaft taught me to respect how unforgiving small fasteners are in manufacturing: there's very little margin for error before you strip the threads, which is something no CAD simulation fully prepares you for.</p>
-<h3>Gallery</h3>
-<p>Click any image to view it full size.</p>
+							<p>The decision matrix put numbers on trade-offs I'd only felt intuitively, like how a single weak category can pull down an otherwise strong design. Documenting a process for every part also changed how I design, since I now think about how something will be made while I'm still modeling it.</p>
 
-<a href="images/sketch.png"><span class="image fit"><img src="images/sketch.png" alt="Hand sketch of the food slicer concept" /></span></a>
-<p>Initial sketch</p>
+							<h3>Gallery</h3>
+							<p>Click any image to view it full size.</p>
 
-<a href="images/slicer_assembly.png"><span class="image fit"><img src="images/slicer_assembly.png" alt="Assembled food slicer in SolidWorks" /></span></a>
-<p>Slicer assembly</p>
+							<a href="images/sketch.png"><span class="image fit"><img src="images/sketch.png" alt="Hand sketch of the food slicer concept" /></span></a>
+							<p>Initial concept sketch</p>
 
-<a href="images/slicer_assembly_exploded.png"><span class="image fit"><img src="images/slicer_assembly_exploded.png" alt="Exploded view of the food slicer assembly" /></span></a>
-<p>Slicer assembly, exploded view</p>
+							<a href="images/slicer_assembly.png"><span class="image fit"><img src="images/slicer_assembly.png" alt="Assembled food slicer in SolidWorks" /></span></a>
+							<p>Team design: SolidWorks assembly</p>
 
-<a href="images/base_safety_cover.png"><span class="image fit"><img src="images/base_safety_cover.png" alt="Base safety cover" /></span></a>
-<p>Base safety cover</p>
+							<a href="images/slicer_assembly_exploded.png"><span class="image fit"><img src="images/slicer_assembly_exploded.png" alt="Exploded view of the food slicer assembly" /></span></a>
+							<p>Team design: exploded view</p>
 
-<a href="images/base_hole_cover.png"><span class="image fit"><img src="images/base_hole_cover.png" alt="Base hole cover" /></span></a>
-<p>Base hole cover</p>
+							<a href="images/base_safety_cover.png"><span class="image fit"><img src="images/base_safety_cover.png" alt="Base safety cover" /></span></a>
+							<p>Base safety cover (modeled by me)</p>
+
+							<a href="images/base_hole_cover.png"><span class="image fit"><img src="images/base_hole_cover.png" alt="Base hole cover" /></span></a>
+							<p>Base hole cover (modeled by me)</p>
+
 							<h3>Full Documentation</h3>
-							<p>For the complete engineering analysis, decision matrix, manufacturing drawings, and inspection records, view the full design reports below. Note: these were collaborative team reports — my individual design and manufactured parts are detailed above.</p>
+							<p>For the complete engineering analysis, decision matrix, drawings, and inspection records, view the full design reports below. Note: these were collaborative team reports.</p>
 							<ul class="actions">
 								<li><a href="documents/Design-Report-2.pdf" class="button">View Design Report 2 (PDF)</a></li>
 								<li><a href="documents/Design-Report-3.pdf" class="button">View Design Report 3 (PDF)</a></li>
 							</ul>
-							
+
 							<ul class="actions">
 								<li><a href="index.html" class="button">Back to Projects</a></li>
 							</ul>
@@ -106,7 +113,5 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-	</body>
-</html>
 	</body>
 </html>
