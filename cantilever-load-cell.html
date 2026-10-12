@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Cantilever Beam Load Cell — Milan Stevanovic</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
+					<h1 id="logo"><a href="index.html">Milan Stevanovic</a></h1>
+					<p>Mechanical Engineering Student<br />
+					University of Florida</p>
+				</header>
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html#one">About</a></li>
+						<li><a href="index.html#two">Skills</a></li>
+						<li><a href="index.html#three">Projects</a></li>
+						<li><a href="index.html#four">Contact</a></li>
+					</ul>
+				</nav>
+				<footer>
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/milan-stevanovic-946974375/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="mailto:stevann.milan@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+			<!-- Main -->
+			<div id="main">
+
+				<!-- Title / Banner -->
+				<section id="one">
+					<!-- TODO: replace with your own banner image -->
+					<div class="image main" data-position="center">
+						<img src="images/load-cell-banner.png" alt="Cantilever beam load cell" />
+					</div>
+					<div class="container">
+						<header class="major">
+							<h2>Cantilever Beam Load Cell</h2>
+							<p>Calibration and uncertainty analysis of a strain-gauge scale,<br />
+							built in LabVIEW and validated with Monte Carlo simulation.</p>
+						</header>
+						<p><a href="index.html#three">&larr; Back to Projects</a></p>
+						<p>
+							<strong>University of Florida</strong> | Dynamic Data Acquisition Lab | Fall 2025<br />
+							<strong>Tools:</strong> LabVIEW, SADI 2.7 DAQ, strain gauge, Wheatstone bridge, Excel
+						</p>
+					</div>
+				</section>
+
+				<!-- Overview -->
+				<section id="two">
+					<div class="container">
+						<h3>Overview</h3>
+						<p>I turned a strain-gauge-instrumented aluminum cantilever beam into a calibrated weight scale, then measured how accurate, repeatable, and uncertain it was. I used the scale to weigh a water bottle ten times and again after each gulp, and compared two ways of converting the sensor signal into weight: an experimental calibration curve and a theoretical beam-bending model.</p>
+
+						<h3>Objectives</h3>
+						<ul>
+							<li>Calibrate a strain-gauge beam scale so it converts voltage into weight</li>
+							<li>Compare the calibration method against beam theory (strain, stress, geometry, material properties)</li>
+							<li>Test repeatability and compute a 95% confidence interval</li>
+							<li>Quantify measurement uncertainty with a Monte Carlo simulation</li>
+						</ul>
+
+						<h3>Setup</h3>
+						<p>The beam is 6061-T6 aluminum, 0.25 m long, about 25.0 mm wide and 2.96 mm thick, with a modulus of 69 GPa. A strain gauge (gauge factor 2.0) is bonded near the clamped end, where bending stress is highest. It&rsquo;s wired in a quarter Wheatstone bridge with a 2.5 V excitation and an amplifier with a gain of 900. A SADI 2.7 DAQ sends the amplified voltage (V<sub>amp</sub>) into LabVIEW.</p>
+					</div>
+				</section>
+
+				<!-- Method -->
+				<section id="three">
+					<div class="container">
+						<h3>Method</h3>
+						<ol>
+							<li><strong>LabVIEW programs.</strong> I built a main VI that records V<sub>amp</sub> and displays voltage against applied load, plus a SubVI that calculates the theoretical load from beam theory:
+								<p style="text-align:center; margin: 1em 0;"><strong>W = (E&middot;b&middot;h&sup2; / 6L) &middot; &epsilon;</strong></p>
+								where E is Young&rsquo;s modulus, b and h are the beam width and thickness, L is the length, and &epsilon; is the measured strain. The main VI takes the beam geometry, gauge factor, and amplifier gain as inputs and reports weight using both methods.</li>
+							<li><strong>Preparation.</strong> I measured the beam&rsquo;s dimensions, with the length taken from the clamp to where the center of the bottle would sit, and saved them as defaults in the VI. I checked that V<sub>amp</sub> changed in proportion to small loads, chose a &plusmn;0.64 V sample window so the signal wouldn&rsquo;t saturate, adjusted the amplifier&rsquo;s trim pot to bring the unloaded output close to 0 V, and tared the signal.</li>
+							<li><strong>Calibration.</strong> I placed six known masses (100, 150, 200, 250, 300, and 400 g) at the same point on the beam and recorded V<sub>amp</sub> for each. I verified each weight on an electronic scale first. In Excel I plotted weight against V<sub>amp</sub> and used the slope of the linear trendline as the calibration constant, then entered it in the VI.</li>
+							<li><strong>Repeatability.</strong> With the VI running continuously, I weighed an unopened water bottle ten times, placing it in the same spot each time. I calculated the mean, standard deviation, and a 95% confidence interval using Student&rsquo;s t-distribution.</li>
+							<li><strong>Gulp test.</strong> I weighed the bottle after each gulp until it was nearly empty, recording weights from both the calibration method and the mechanics-of-materials method.</li>
+							<li><strong>Uncertainty.</strong> I ran a 10,000-trial Monte Carlo simulation, varying beam length, width, and thickness, Young&rsquo;s modulus (&plusmn;5%), gauge factor (&plusmn;0.5%), and amplifier gain (&plusmn;0.5%), to see how input uncertainty spreads into the results.</li>
+						</ol>
+					</div>
+				</section>
+
+				<!-- Results -->
+				<section id="four">
+					<div class="container">
+						<h3>Results</h3>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Measurement</th>
+										<th>Result</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr><td>Calibration slope (experimental)</td><td>8.6275 N/V, strongly linear</td></tr>
+									<tr><td>Repeatability, mean of 10 weighings</td><td>2.540 N</td></tr>
+									<tr><td>Standard deviation</td><td>0.0073 N (under 0.3% variation)</td></tr>
+									<tr><td>95% confidence interval</td><td>&plusmn;0.0143 N, or [2.526, 2.555] N</td></tr>
+									<tr><td>Monte Carlo slope</td><td>8.6302 &plusmn; 0.1212 N/V</td></tr>
+									<tr><td>Monte Carlo vs. experiment</td><td>within 0.04%</td></tr>
+								</tbody>
+							</table>
+						</div>
+						<p>Over the nine gulp measurements, the bottle&rsquo;s weight dropped steadily from about 2.49 N to nearly zero. The calibration method and the beam-theory method gave comparable values throughout.</p>
+
+						<h3>Analysis</h3>
+						<ul>
+							<li><strong>Linear and elastic.</strong> The calibration was strongly linear, which shows the beam stayed in its elastic range. A maximum-load check confirmed the heaviest test load was far below the beam&rsquo;s yield limit.</li>
+							<li><strong>Highly repeatable.</strong> Ten identical weighings varied by less than 0.3%, so the strain gauge and amplifier produced a stable signal.</li>
+							<li><strong>Calibration beat theory.</strong> The calibration curve proved more precise than the theoretical model. Beam theory depends on many measured parameters (length, width, thickness, modulus, gauge factor), and each adds uncertainty. The calibration curve absorbs those errors into one fitted slope.</li>
+							<li><strong>Monte Carlo validated the calibration.</strong> It reproduced the experimental slope almost exactly, which supported the linearity assumption and showed the calibration was stable.</li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- Limitations and Learnings -->
+				<section id="five">
+					<div class="container">
+						<h3>Limitations and What I&rsquo;d Improve</h3>
+						<ul>
+							<li>Signal noise and the manual trim-pot adjustment limit precision, so I&rsquo;d use a higher-resolution DAQ range and a more careful zeroing procedure.</li>
+							<li>Loads were placed by hand at one point, so a fixture would remove position error.</li>
+							<li>The beam only covers small loads. A thicker beam or a different gauge would extend the range.</li>
+							<li>Temperature and electrical noise weren&rsquo;t controlled.</li>
+						</ul>
+
+						<h3>What I Learned</h3>
+						<ul>
+							<li>How a strain gauge, Wheatstone bridge, and amplifier turn a tiny change in resistance into a usable voltage</li>
+							<li>How to build a data acquisition workflow in LabVIEW, from the VI to calibration</li>
+							<li>Why calibration often beats first-principles modeling for precision, and how uncertainty accumulates through a calculation</li>
+							<li>Why accuracy and repeatability are separate questions, and how to measure each</li>
+							<li>How to use Monte Carlo simulation to estimate uncertainty when the math is too complex to propagate by hand</li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- Gallery (uncomment and add your images)
+				<section id="six">
+					<div class="container">
+						<h3>Project Gallery</h3>
+						<p><span class="image fit"><img src="images/load-cell-1.png" alt="Cantilever beam load cell setup" /></span></p>
+						<p><span class="image fit"><img src="images/load-cell-2.png" alt="LabVIEW front panel" /></span></p>
+						<p><span class="image fit"><img src="images/load-cell-3.png" alt="Calibration curve" /></span></p>
+					</div>
+				</section>
+				-->
+
+				<!-- Footer -->
+				<section id="footer">
+					<div class="container">
+						<ul class="copyright">
+							<li>&copy; Milan Stevanovic</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</section>
+
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
